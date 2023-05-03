@@ -13,7 +13,7 @@ const ChefCard = ({ chef }) => {
                     </div> :
                     <p>picture is coming</p>
             }
-            <Link to={`/chef/${chef.id}`}><button>view recipe</button></Link>
+            <Link to={`/recipes/${chef.id}`}><button>view recipe</button></Link>
         </div>
     );
 };

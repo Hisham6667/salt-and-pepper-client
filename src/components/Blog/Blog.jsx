@@ -1,13 +1,13 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 
-const Login = () => {
+const Blog = () => {
     return (
         <div className='lg:container mx-auto'>
             <Navigation></Navigation>
-            this is login page
+            this is blog page
         </div>
     );
 };
 
-export default Login;
+export default Blog;
