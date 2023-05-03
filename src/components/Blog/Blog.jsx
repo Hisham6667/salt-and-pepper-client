@@ -1,11 +1,13 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 
 const Blog = () => {
     return (
         <div className='lg:container mx-auto'>
             <Navigation></Navigation>
-            this is blog page
+            <div className="h-screen"></div>
+            <Footer></Footer>
         </div>
     );
 };
