@@ -3,13 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import RecipeDescription from '../RecipeDescription/RecipeDescription';
-import { GrStarOutline } from "react-icons/gr";
-import { GiBeveledStar } from "react-icons/gi";
+import { GiBeveledStar, GiForkKnifeSpoon } from "react-icons/gi";
 
 const ChefDetails = () => {
 
     const singleChef = useLoaderData()
-    console.log(singleChef);
     const { picture_url, name, specialty, description, likes, number_of_recipes, years_of_experience, recipes } = singleChef;
 
 
@@ -19,9 +17,9 @@ const ChefDetails = () => {
 
             <Navigation></Navigation>
 
-            <div className="h-screen">
+            <div className="min-h-screen">
 
-                <div className="card w-11/12 h-96 image-full mx-auto mb-10">
+                <div className="card w-11/12 h-96 image-full mx-auto mb-16">
                     <figure className=''>
                         <img className='w-full' src={picture_url} alt="Shoes" />
                     </figure>
@@ -58,9 +56,26 @@ const ChefDetails = () => {
                 </div>
 
 
-                {
-                    recipes.map(recipe => <RecipeDescription recipe={recipe}></RecipeDescription>)
-                }
+                <div className='w-11/12 mx-auto mb-16 border-amber-700 border p-5'>
+                    <div className='rounded-b-lg flex flex-col mb-4 border-b-2 border-dotted border-amber-600'>
+                        <div className='flex justify-between'>
+                            <GiBeveledStar className='text-5xl mx-5 text-amber-500' />
+                            <GiForkKnifeSpoon className='text-7xl text-amber-500' />
+                            <GiBeveledStar className='text-5xl mx-5 text-amber-500' />
+                        </div>
+                        <div className='flex justify-between items-center'>
+                            <GiBeveledStar className='text-5xl mx-5 text-amber-500' />
+                            <div className='text-3xl my-4 text'>{ } GREATEST RECIPES OF ALL TIME</div>
+                            <GiBeveledStar className='text-5xl mx-5 text-amber-500' />
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-6">
+                        {
+                            recipes.map(recipe => <RecipeDescription key={recipe.rating} recipe={recipe}></RecipeDescription>)
+                        }
+                    </div>
+                </div>
             </div>
 
 

@@ -2,9 +2,9 @@ import React from 'react';
 import { GiBarbedStar } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from "react-icons/fi";
+import './ChefCard.css'
 
 const ChefCard = ({ chef }) => {
-    // console.log(chef);
     const { picture_url, name, years_of_experience, number_of_recipes, likes, specialty } = chef
     return (
         <div>
@@ -16,7 +16,7 @@ const ChefCard = ({ chef }) => {
                             <p>picture is coming</p>
                     }
                 </figure>
-                <div className="card-body">
+                <div id='chefCardBody' className="card-body">
                     <p className='text-center text-2xl uppercase text-amber-700 border-neutral-400 border-dashed border-t-2 border-b-2 rounded-lg mb-0'>{name}</p>
                     <p className='text-center m-0 flex items-center justify-between'>
                         <GiBarbedStar className='text-md mx-5 text-amber-500' />
@@ -41,7 +41,7 @@ const ChefCard = ({ chef }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
