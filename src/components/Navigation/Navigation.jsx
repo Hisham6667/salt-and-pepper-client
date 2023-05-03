@@ -19,7 +19,7 @@ const Navigation = () => {
             <div className='flex w-3/5 justify-between'>
 
                 <div className='w-1/3 flex justify-center'>
-                    <span className='tooltip tooltip-bottom tooltip-warning w-14' data-tip="Hisham">
+                    <span className='tooltip tooltip-bottom tooltip-warning w-16 border border-amber-500 border-dashed rounded-full p-1' data-tip="Hisham">
                         <img className='w-full hover:cursor-pointer m-0 p-0' src={logo} alt="" />
                     </span>
                 </div>
