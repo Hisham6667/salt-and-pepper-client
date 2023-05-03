@@ -1,16 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import Navigation from '../Navigation/Navigation';
-import Footer from '../Footer/Footer';
 
-const RecipeDescription = () => {
-    const singleChef = useLoaderData()
-    console.log(singleChef.name);
+
+const RecipeDescription = ({recipe}) => {
+
+    const {name, ingredients, method, rating} = recipe;
+
     return (
-        <div className='lg:container mx-auto'>
-            <Navigation></Navigation>
-            <div className="h-screen"></div>
-            <Footer></Footer>
+        <div>
         </div>
     );
 };

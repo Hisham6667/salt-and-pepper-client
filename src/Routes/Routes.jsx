@@ -6,8 +6,8 @@ import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import { createBrowserRouter } from 'react-router-dom';
 import AllChef from '../components/AllChef/AllChef';
-import RecipeDescription from '../components/RecipeDescription/RecipeDescription';
 import Blog from '../components/Blog/Blog';
+import ChefDetails from "../components/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/recipes/:id',
-        element: <RecipeDescription></RecipeDescription>,
+        path: '/chef/:id',
+        element: <ChefDetails></ChefDetails>,
         loader: ({params}) => fetch(`http://localhost:5000/allchef/${params.id}`)
     },
     {

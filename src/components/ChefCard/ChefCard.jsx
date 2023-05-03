@@ -29,14 +29,14 @@ const ChefCard = ({ chef }) => {
 
                     <li className='text-stone-500 uppercase'>his cooks made him get <span className='text-amber-600'>{likes}</span> likes</li>
                     <div className="card-actions">
-                        <Link className='w-full' to={`/recipes/${chef.id}`}>
+                        <Link className='w-full' to={`/chef/${chef.id}`}>
                             <button className='p-3 bg-white font-semibold w-full border border-amber-700 transition-all hover:bg-amber-600 hover:text-white hover:border-slate-300 active:border-amber-700 active:text-black 
                             active:bg-white 
                             rounded-br-xl 
                             rounded-tr-xl flex justify-center items-center'>
                                 VIEW RECIPES
-                                <FiArrowRight className='ml-3 text-xl'/>
-                                </button>
+                                <FiArrowRight className='ml-3 text-xl' />
+                            </button>
                         </Link>
                     </div>
                 </div>
