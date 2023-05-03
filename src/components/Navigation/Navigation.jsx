@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
         <div>
-            this is navigation
+            <Link to='/'>home</Link>
         </div>
     );
 };
