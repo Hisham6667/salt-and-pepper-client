@@ -5,6 +5,7 @@ import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import { createBrowserRouter } from 'react-router-dom';
+import AllChef from '../components/AllChef/AllChef';
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,14 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                children: [
+                    {
+                        path: '/chefs',
+                        element: <AllChef></AllChef>,
+                        loader: () => fetch('http://localhost:5000/allchef')
+                    }
+                ]
             },
         ]
     },
