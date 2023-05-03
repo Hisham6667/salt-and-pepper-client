@@ -5,7 +5,7 @@ import logo from '/food.svg'
 
 const Navigation = () => {
     return (
-        <nav className='w-full bg- p-4 border-b border-t mt-1 rounded-md border-amber-600 flex items-center justify-between'>
+        <nav className='w-full bg- p-4 border-b border-t mb-5 mt-1 rounded-md border-amber-600 flex items-center justify-between'>
             <div className='flex items-center w-2/5'>
                 <img className='w-16 m-0 p-0 mx-8' src={logo} alt="" />
                 <p className='text-3xl'>
