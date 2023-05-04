@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { GoMarkGithub } from "react-icons/go";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    const {loginUser} = useContext(AuthContext)
 
     const handleLogin = event => {
         setError('');
@@ -16,7 +19,21 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        // console.log(email, password);
+
+        loginUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setSuccess('login successful')
+        })
+        .catch(error => setError(error.message))
+
+
+
+
+
+
     }
 
     return (

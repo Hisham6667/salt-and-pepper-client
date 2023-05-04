@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    const {createUser} = useContext(AuthContext)
 
     const handleRegister = event => {
 
@@ -17,8 +20,6 @@ const Register = () => {
         const email = form.email.value;
         const pass = form.password.value;
         // console.log(name, email, pass);
-        // setSuccess('Profile created');
-
 
         //validate 
         if (/(?=.*[!@#$&*])/.test(pass)) {
@@ -33,6 +34,19 @@ const Register = () => {
             setError('please type at least 6 characters')
             return
         }
+        else if (name.length < 4) {
+            setError('the name should at least 4 characters')
+            return
+        }
+
+        createUser(email, pass)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setError('')
+            setSuccess('Profile created successfully')
+        })
+        .catch(error => setError(error.message))
 
 
     }
