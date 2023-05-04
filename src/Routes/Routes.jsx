@@ -22,7 +22,7 @@ const router = createBrowserRouter([
                     {
                         path: '/',
                         element: <AllChef></AllChef>,
-                        loader: () => fetch('http://localhost:5000/allchef')
+                        loader: () => fetch('https://the-kitchen-server-hisham6667.vercel.app/allchef')
                     }
                 ]
             },
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     {
         path: '/chef/:id',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allchef/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-kitchen-server-hisham6667.vercel.app/allchef/${params.id}`)
     },
     {
         path: '/blogs',
