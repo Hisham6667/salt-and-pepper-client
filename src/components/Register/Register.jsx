@@ -1,14 +1,18 @@
 import React, { useContext, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const { createUser, loading } = useContext(AuthContext)
+
+    const from = location.state?.from?.pathname || '/';
 
     if (loading) {
         return <div className="flex justify-center items-center h-screen">
@@ -58,6 +62,7 @@ const Register = () => {
                 setError('')
                 setSuccess('Profile created successfully')
                 form.reset()
+                navigate(from, { replace: true})
             })
             .catch(error => setError(error.message))
 

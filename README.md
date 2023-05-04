@@ -2,7 +2,7 @@
 
 ## Live site
 
- - [https://delightful-pika-01d1c2.netlify.app/login](https://delightful-pika-01d1c2.netlify.app/login)
+ - [https://kitchen-of-salt-and-pepper.web.app](https://kitchen-of-salt-and-pepper.web.app)
 
  ## Features
  - This website is about food and chef.
