@@ -16,7 +16,7 @@ const AllChef = () => {
                 </div>
                 <div className='flex justify-between items-center'>
                     <GiBarbedStar className='text-5xl mx-5 text-amber-500' />
-                    <div className='text-3xl my-4 text'>{allChef.length} GREATEST CHEFS OF ALL TIME</div>
+                    <div className='text-3xl my-4 font-semibold font-serif'>{allChef.length} GREATEST <span className='text-amber-500'>CHEFS</span> OF ALL TIME</div>
                     <GiBarbedStar className='text-5xl mx-5 text-amber-500' />
                 </div>
             </div>

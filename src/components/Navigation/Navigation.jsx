@@ -31,7 +31,7 @@ const Navigation = () => {
             <div className='flex w-3/5 justify-between'>
 
                 <div className='w-1/3 flex justify-center'>
-                    <span className='tooltip tooltip-bottom tooltip-warning w-16 border border-amber-500 border-dashed rounded-full p-1' data-tip={user ? (user.email ? user.email : user.displayName) : 'no user'}>
+                    <span className='tooltip tooltip-bottom tooltip-warning w-16 border border-amber-500 border-dashed rounded-full p-1' data-tip={user ? (user.displayName ? user.displayName : user.email) : 'no user'}>
                         {
                             user ?
                                 <img className='w-full hover:cursor-pointer m-0 p-0 rounded-full' src={profile} alt="" /> :
