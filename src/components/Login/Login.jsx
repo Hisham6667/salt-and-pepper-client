@@ -10,7 +10,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const {loginUser} = useContext(AuthContext)
+    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext)
 
     const handleLogin = event => {
         setError('');
@@ -22,18 +22,34 @@ const Login = () => {
         // console.log(email, password);
 
         loginUser(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            setSuccess('login successful')
-        })
-        .catch(error => setError(error.message))
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setSuccess('login successful')
+            })
+            .catch(error => setError(error.message))
+    }
 
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setError('')
+                setSuccess('google login successful')
+            })
+            .catch(error => setError(error.message))
+    }
 
-
-
-
-
+    const handleGithubLogin = () => {
+        githubLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setError('')
+                setSuccess('github login successful')
+            })
+            .catch(error => setError(error.message))
     }
 
     return (
@@ -75,11 +91,11 @@ const Login = () => {
 
                     <div className="form-control w-4/6 justify-between items-center">
 
-                        <button type='submit' className="btn bg-white border border-blue-500 hover:border hover:border-none hover:bg-blue-500/80 text-blue-500 hover:text-white w-full flex flex-row justify-center mb-3">
+                        <button onClick={handleGoogleLogin} className="btn bg-white border border-blue-500 hover:border hover:border-none hover:bg-blue-500/80 text-blue-500 hover:text-white w-full flex flex-row justify-center mb-3">
                             <FcGoogle className='text-xl mx-3' />
                             <p className='text-sm lowercase font-normal font-sans'>Login with google</p>
                         </button>
-                        <button type='submit' className="btn bg-white border border-black hover:border hover:border-none hover:bg-black text-black hover:text-white w-full flex flex-row justify-center">
+                        <button onClick={handleGithubLogin} className="btn bg-white border border-black hover:border hover:border-none hover:bg-black text-black hover:text-white w-full flex flex-row justify-center">
                             <GoMarkGithub className='text-xl mx-3' />
                             <p className='text-sm lowercase font-normal font-sans'>Login with github</p>
                         </button>

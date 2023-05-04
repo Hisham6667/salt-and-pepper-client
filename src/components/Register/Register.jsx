@@ -19,10 +19,15 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const pass = form.password.value;
-        // console.log(name, email, pass);
+        const photo = form.photo.value;
+        // console.log(photo, email, pass);
 
         //validate 
-        if (/(?=.*[!@#$&*])/.test(pass)) {
+        if (name.length < 4) {
+            setError('your name should be 4 characters')
+            return
+        }
+        else if (/(?=.*[!@#$&*])/.test(pass)) {
             setError('dont use these characters !,@,#,$,&,*')
             return
         }
@@ -34,10 +39,10 @@ const Register = () => {
             setError('please type at least 6 characters')
             return
         }
-        else if (name.length < 4) {
-            setError('the name should at least 4 characters')
-            return
-        }
+        // else if (photo.length < 15) {
+        //     setError('the photo should be a link')
+        //     return
+        // }
 
         createUser(email, pass)
         .then(result => {
@@ -71,14 +76,21 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
-                        <input type="text" name='email' placeholder="enter a valid email" className="input input-bordered rounded-none border-none bg-amber-500/10 focus:outline-none" required />
+                        <input type="email" name='email' placeholder="enter a valid email" className="input input-bordered rounded-none border-none bg-amber-500/10 focus:outline-none" required />
                     </div>
 
-                    <div className="form-control w-4/6 mb-6">
+                    <div className="form-control w-4/6 mb-3">
                         <label className="label">
                             <span className="label-text">Create Password</span>
                         </label>
                         <input type="password" name='password' placeholder="type at least 6 characters" className="input input-bordered rounded-none border-none bg-amber-500/10 focus:outline-none" required />
+                    </div>
+
+                    <div className="form-control w-4/6 mb-6">
+                        <label className="label">
+                            <span className="label-text">Photo url</span>
+                        </label>
+                        <input type="text" name='photo' placeholder="enter your photo link" className="input input-bordered rounded-none border-none bg-amber-500/10 focus:outline-none" required />
                     </div>
 
                     <div className="form-control w-4/6">
