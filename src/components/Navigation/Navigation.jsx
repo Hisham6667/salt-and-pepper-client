@@ -8,7 +8,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Navigation = () => {
     const {user} = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
     return (
         <nav className='w-full bg- p-4 border-b border-t mt-1 rounded-md border-amber-600 flex items-center justify-between'>
             <div className='flex items-center w-2/5'>
