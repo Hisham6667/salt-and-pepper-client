@@ -3,6 +3,7 @@ import logo from '/food.svg'
 import './RecipeDescription.css'
 import Rating from 'react-rating';
 import { FaRegStar, FaStar, FaBookmark } from "react-icons/fa";
+import { GiCheckMark } from "react-icons/gi";
 
 const RecipeDescription = ({ recipe }) => {
 
@@ -16,9 +17,14 @@ const RecipeDescription = ({ recipe }) => {
             <div className="card-body">
                 <p className='mb-4 max-h-16 h-16 py-3 rounded-lg border-dashed border-black border-y-2 text-center text-3xl uppercase'>{name}</p>
                 <div className='flex flex-col justify-between h-full'>
-                    <p className='text-justify text-lg my-5'>{ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}</p>
+
+                    <div className='text-justify text-lg my-5'>{ingredients.map(ingredient =>
+                        <p key={ingredient} className='flex  items-center'>
+                            <GiCheckMark className='text-amber-600 mx-2'/>{ingredient}
+                        </p>
+                    )}</div>
                     <p className='text-justify text-sm my-5'>{method}</p>
-                    <div className='flex justify-between items-center bg-white py-3 px-2 border border-amber-700 rounded-xl'>
+                    <div className='flex justify-between items-center bg-white py-3 px-2 border-y-2 border-dashed border-amber-600 rounded-xl'>
                         <div className='flex items-center'>
                             <Rating className='mt-1'
                                 placeholderRating={rating}
@@ -29,7 +35,7 @@ const RecipeDescription = ({ recipe }) => {
                             />
                             <p className='text-xl uppercase ml-2'>{rating}</p>
                         </div>
-                        <button className='flex items-center justify-center p-2 border border-amber-700 rounded-lg text-amber-600'>Save Recipe<FaBookmark className='mx-2 text-red-500'/></button>
+                        <button className='flex items-center justify-center p-2 border border-amber-700 rounded-full text-amber-600'>Save Recipe<FaBookmark className='mx-2 text-red-500' /></button>
                     </div>
                 </div>
             </div>

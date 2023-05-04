@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import logo from '/food.svg'
+import profile from '/profile.png'
+import { AuthContext } from '../../Providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navigation = () => {
+    const {user} = useContext(AuthContext)
+    console.log(user);
     return (
-        <nav className='w-full bg- p-4 border-b border-t mb-5 mt-1 rounded-md border-amber-600 flex items-center justify-between'>
+        <nav className='w-full bg- p-4 border-b border-t mt-1 rounded-md border-amber-600 flex items-center justify-between'>
             <div className='flex items-center w-2/5'>
                 <img className='w-16 m-0 p-0 mx-8' src={logo} alt="" />
                 <p className='text-3xl'>
@@ -15,12 +20,15 @@ const Navigation = () => {
                 </p>
             </div>
 
-            {/* aidiv ta 3 vag */}
             <div className='flex w-3/5 justify-between'>
 
                 <div className='w-1/3 flex justify-center'>
-                    <span className='tooltip tooltip-bottom tooltip-warning w-16 border border-amber-500 border-dashed rounded-full p-1' data-tip="Hisham">
-                        <img className='w-full hover:cursor-pointer m-0 p-0' src={logo} alt="" />
+                    <span className='tooltip tooltip-bottom tooltip-warning w-16 border border-amber-500 border-dashed rounded-full p-1' data-tip={user ? user : 'no user'}>
+                        {
+                            user ? 
+                            <img className='w-full hover:cursor-pointer m-0 p-0 rounded-full' src={profile} alt="" /> : 
+                            <img className='w-full hover:cursor-pointer m-0 p-0' src={logo} alt="" />
+                        }
                     </span>
                 </div>
 
