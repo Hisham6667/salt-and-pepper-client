@@ -45,7 +45,7 @@ const Navigation = () => {
                         <ActiveLink to='/'><i>Home</i></ActiveLink>
                     </span>
                     <span className='hover:text-amber-500 active:text-amber-600 ease-in duration-200 font-semibold'>
-                        <ActiveLink to='/blog'><i>Blogs</i></ActiveLink>
+                        <ActiveLink to='/blogs'><i>Blogs</i></ActiveLink>
                     </span>
 
                     {user ?

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoMarkGithub } from "react-icons/go";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -9,8 +9,18 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext)
+    const { loginUser, googleLogin, githubLogin, loading } = useContext(AuthContext)
+
+    const from = location.state?.from?.pathname || '/';
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen">
+            <progress className="progress progress-warning w-52"></progress>
+        </div>
+    }
 
     const handleLogin = event => {
         setError('');
@@ -26,6 +36,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setSuccess('login successful')
+                form.reset()
+                navigate(from, { replace: true})
             })
             .catch(error => setError(error.message))
     }
@@ -37,6 +49,7 @@ const Login = () => {
                 console.log(loggedUser);
                 setError('')
                 setSuccess('google login successful')
+                navigate(from, { replace: true})
             })
             .catch(error => setError(error.message))
     }
@@ -48,6 +61,7 @@ const Login = () => {
                 console.log(loggedUser);
                 setError('')
                 setSuccess('github login successful')
+                navigate(from, { replace: true})
             })
             .catch(error => setError(error.message))
     }

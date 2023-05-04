@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '/error.webp'
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Error = () => {
+    const { loading } = useContext(AuthContext)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen">
+            <progress className="progress progress-warning w-52"></progress>
+        </div>
+    }
+
     return (
         <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
             <img className='w-52 rounded-full mb-5' src={logo} alt="" />

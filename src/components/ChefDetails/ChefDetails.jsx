@@ -10,14 +10,12 @@ const ChefDetails = () => {
     const singleChef = useLoaderData()
     const { picture_url, name, specialty, description, likes, number_of_recipes, years_of_experience, recipes } = singleChef;
 
-
-
     return (
         <div className='lg:container mx-auto'>
 
             <Navigation></Navigation>
 
-            <div className="min-h-screen">
+            <div className="min-h-screen mt-10">
 
                 <div className="card w-11/12 h-96 image-full mx-auto mb-16">
                     <figure className=''>

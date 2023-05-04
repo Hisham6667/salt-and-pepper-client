@@ -8,7 +8,14 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const {createUser} = useContext(AuthContext)
+    const { createUser, loading } = useContext(AuthContext)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen">
+            <progress className="progress progress-warning w-52"></progress>
+        </div>
+    }
+
 
     const handleRegister = event => {
 
@@ -45,13 +52,14 @@ const Register = () => {
         // }
 
         createUser(email, pass)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            setError('')
-            setSuccess('Profile created successfully')
-        })
-        .catch(error => setError(error.message))
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setError('')
+                setSuccess('Profile created successfully')
+                form.reset()
+            })
+            .catch(error => setError(error.message))
 
 
     }

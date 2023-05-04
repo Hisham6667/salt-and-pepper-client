@@ -8,11 +8,12 @@ import { createBrowserRouter } from 'react-router-dom';
 import AllChef from '../components/AllChef/AllChef';
 import Blog from '../components/Blog/Blog';
 import ChefDetails from "../components/ChefDetails/ChefDetails";
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Main></Main> ,
+        element: <Main></Main>,
         children: [
             {
                 path: '/',
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
     },
     {
         path: '/chef/:id',
-        element: <ChefDetails></ChefDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/allchef/${params.id}`)
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allchef/${params.id}`)
     },
     {
-        path: '/blog',
+        path: '/blogs',
         element: <Blog></Blog>
     },
     {

@@ -20,7 +20,7 @@ const RecipeDescription = ({ recipe }) => {
 
                     <div className='text-justify text-lg my-5'>{ingredients.map(ingredient =>
                         <p key={ingredient} className='flex  items-center'>
-                            <GiCheckMark className='text-amber-600 mx-2'/>{ingredient}
+                            <GiCheckMark className='text-amber-600 mx-2' />{ingredient}
                         </p>
                     )}</div>
                     <p className='text-justify text-sm my-5'>{method}</p>

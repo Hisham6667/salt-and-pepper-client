@@ -1,12 +1,10 @@
-
 #banner {
     background-image: linear-gradient(to bottom right,
-    #a169009f,
-     #ac5c0094, 
-     #946000b2,
-     #ff8c0071, 
-     #be7b00a4
-     ),
-      url(/public/foodbanner.jpg);
+            #a169009f,
+            #ac5c0094,
+            #946000b2,
+            #ff8c0071,
+            #be7b00a4),
+        url(/public/foodbanner.jpg);
 
 }

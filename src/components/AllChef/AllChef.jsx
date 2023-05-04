@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
 import { GiBarbedStar, GiJewelCrown } from "react-icons/gi";
